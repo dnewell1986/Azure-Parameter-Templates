@@ -1,0 +1,74 @@
+{
+  "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "virtualMachinesSettings": {
+      "value": {
+        "namePrefix": "netchex-dev",
+        "computerNamePrefix": "netchex-dev",
+        "size": "Standard_A1",
+        "osType": "windows",
+        "adminUsername": "vagrant",
+        "adminPassword": "N3tch3x-n3tch3x",
+        "osAuthenticationType": "password",
+        "nics": [
+          {
+            "isPublic": "true",
+            "subnetName": "web",
+            "privateIPAllocationMethod": "Static",
+            "publicIPAllocationMethod": "Dynamic",
+            "startingIPAddress": "10.0.0.240",
+            "enableIPForwarding": true,
+            "dnsServers": [
+            ],
+            "isPrimary": "true"
+          },
+          {
+            "isPublic": "false",
+            "subnetName": "nc-biz",
+            "privateIPAllocationMethod": "Dynamic",
+            "enableIPForwarding": false,
+            "dnsServers": [
+            ],
+            "isPrimary": "false"
+          },
+          {
+            "isPublic": "false",
+            "subnetName": "data",
+            "privateIPAllocationMethod": "Static",
+            "startingIPAddress": "10.0.2.240",
+            "enableIPForwarding": false,
+            "dnsServers": [
+            ],
+            "isPrimary": "false"
+          }
+        ],
+        "dataDisks": {
+          "count": 0,
+          "properties": { }
+        },
+        "osDisk": {
+          "caching": "ReadWrite"
+        },
+        "extensions": [],
+        "availabilitySet": {
+          "useExistingAvailabilitySet": "No",
+          "name": "netchex-dev-as"
+        }
+      }
+    },
+    "virtualNetworkSettings": {
+      "value": {
+        "name": "netchex-dev-vnet",
+        "resourceGroup": "netchex-dev-laf-rg"
+      }
+    },
+    "buildingBlockSettings": {
+      "value": {
+        "storageAccountsCount": 1,
+        "vmCount": 1,
+        "vmStartIndex": 1
+      }
+    }
+  }
+}
