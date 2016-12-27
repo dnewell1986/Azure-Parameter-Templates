@@ -22,25 +22,6 @@
             "dnsServers": [
             ],
             "isPrimary": "true"
-          },
-          {
-            "isPublic": "false",
-            "subnetName": "nc-biz",
-            "privateIPAllocationMethod": "Dynamic",
-            "enableIPForwarding": false,
-            "dnsServers": [
-            ],
-            "isPrimary": "false"
-          },
-          {
-            "isPublic": "false",
-            "subnetName": "data",
-            "privateIPAllocationMethod": "Static",
-            "startingIPAddress": "10.0.2.240",
-            "enableIPForwarding": false,
-            "dnsServers": [
-            ],
-            "isPrimary": "false"
           }
         ],
         "dataDisks": {
